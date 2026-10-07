@@ -3,4 +3,4 @@ ASINCO es una plataforma web para gestionar inventario, compras, proveedores y t
 
 Proyecto de Título desarrollado para optar al título de Ingeniero en Informática en DuocUC.
 
-Presentado por Benjamín Jeria y Sebastián Pardo
+Desarrollado por Benjamín Jeria y Sebastián Pardo
