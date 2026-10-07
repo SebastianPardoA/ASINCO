@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="Modelo Entidad-Relacion ASINCO" id="64E993AC-E556-7768-2D20-03071C209F8D" version="3.5">
+<createdBy>losbe</createdBy>
+<createdTime>2026-10-05 18:40:15 UTC</createdTime>
+<ownerDesignName>Modelo Entidad-Relacion ASINCO</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>64E993AC-E556-7768-2D20-03071C209F8D</designId>
+<usedDesignStorageDescriptors>
+<designDescr class="oracle.dbtools.crest.model.design.Design$DesignStorageDesc" id="54BD5F01-0FEA-5DB3-EB2C-1DB72031BEAC">
+<designStoragePath>E:\asinco_oracle</designStoragePath>
+</designDescr>
+</usedDesignStorageDescriptors>
+</OSDM_Design>
