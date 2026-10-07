@@ -1,0 +1,1347 @@
+/**
+ * registro_compra.css
+ *
+ * Define los estilos especificos de la vista registro de compra
+ */
+
+/* Contenedor principal del flujo de registro de compra */
+.registro-compra {
+    display: grid;
+    gap: 22px;
+}
+
+/* Texto que indica el paso actual dentro del contenido */
+.registro-subpaso {
+    margin: 0 0 -8px;
+    color: #8b929c;
+    font-weight: 700;
+}
+
+.registro-subpaso span {
+    color: #0b67d1;
+}
+
+/* Indicador visual de pasos del registro de compra */
+.registro-pasos {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: center;
+    gap: 18px;
+    min-height: 94px;
+    margin: 0;
+    padding: 18px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+    list-style: none;
+}
+
+.registro-pasos__item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: #9ca3af;
+}
+
+.registro-pasos__item:not(:last-child)::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    margin-left: 12px;
+    background: #c7cdd3;
+}
+
+.registro-pasos__item span {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #eeeeee;
+    color: #111827;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.registro-pasos__item strong {
+    min-width: max-content;
+}
+
+.registro-pasos__item--activo {
+    color: var(--color-primario);
+}
+
+.registro-pasos__item--activo span {
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+/* Grillas principales del paso de registro */
+.registro-compra__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.registro-producto__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 540px;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Paneles reutilizados por el flujo de registro */
+.registro-panel {
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+}
+
+.registro-panel__titulo {
+    min-height: 58px;
+    padding: 18px;
+    background: #eeeeee;
+}
+
+.registro-panel__titulo--azul {
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+.registro-panel__titulo h2 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0;
+}
+
+/* Tabla de productos solicitados */
+.registro-lista-columna {
+    display: flex;
+    flex-direction: column;
+    min-height: 610px;
+}
+
+.registro-lista {
+    flex: 1;
+    min-height: 0;
+}
+
+.registro-tabla {
+    min-height: 430px;
+    overflow: auto;
+}
+
+.registro-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+}
+
+.registro-tabla th,
+.registro-tabla td {
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    text-align: left;
+    vertical-align: middle;
+}
+
+.registro-tabla th {
+    background: #ffffff;
+}
+
+.registro-tabla th:first-child,
+.registro-tabla td:first-child {
+    width: 42px;
+    text-align: center;
+}
+
+.registro-tabla input,
+.registro-tabla select {
+    width: 100%;
+    min-height: 36px;
+    padding: 8px;
+    border: 1px solid #bfc6cf;
+    background: #ffffff;
+}
+
+.registro-acciones {
+    display: inline-flex;
+    gap: 12px;
+}
+
+.registro-acciones button {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.35rem;
+}
+
+.registro-acciones button:first-child {
+    color: var(--color-primario);
+}
+
+.registro-acciones button:last-child {
+    color: #e11d1d;
+}
+
+/* Acciones inferiores del listado de productos */
+.registro-lista__acciones,
+.registro-formulario__acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-top: 16px;
+}
+
+.registro-lista__acciones {
+    margin-top: auto;
+}
+
+.registro-boton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 0 16px;
+    border: 0;
+    border-radius: 6px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.registro-boton i {
+    font-size: 1.25rem;
+}
+
+.registro-boton--gris {
+    color: var(--color-texto);
+    background: #d9d9d9;
+}
+
+.registro-boton--primario {
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+/* Resumen lateral de solicitud */
+.registro-resumen {
+    min-height: 610px;
+}
+
+.registro-resumen__contenido {
+    display: grid;
+    gap: 26px;
+    padding: 24px 32px;
+}
+
+.registro-resumen__item {
+    display: grid;
+    grid-template-columns: 54px 1fr;
+    gap: 12px;
+    align-items: center;
+}
+
+.registro-resumen__icono {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 7px;
+    font-size: 1.7rem;
+}
+
+.registro-resumen__icono--azul {
+    color: #2878dc;
+    background: #cfe3ff;
+}
+
+.registro-resumen__icono--celeste {
+    color: #2f75db;
+    background: #bfd7ff;
+}
+
+.registro-resumen__icono--amarillo {
+    color: #ad7a00;
+    background: #ffe195;
+}
+
+.registro-resumen__item strong {
+    display: block;
+    font-size: 1.45rem;
+}
+
+.registro-resumen__item p {
+    margin: 4px 0 0;
+    color: var(--color-texto-suave);
+    font-weight: 700;
+}
+
+/* Formulario para agregar productos */
+.registro-formulario-columna {
+    display: flex;
+    flex-direction: column;
+    min-height: 590px;
+}
+
+.registro-formulario {
+    flex: 1;
+    padding: 18px;
+}
+
+.registro-formulario h2 {
+    margin: 0 0 18px;
+    font-size: 1rem;
+}
+
+.registro-formulario form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 56px;
+}
+
+.campo-registro {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.campo-registro--completo {
+    grid-column: 1 / -1;
+}
+
+.campo-registro b {
+    color: #e11d1d;
+}
+
+.campo-registro input,
+.campo-registro select,
+.campo-registro textarea {
+    width: 100%;
+    min-height: 38px;
+    padding: 9px;
+    border: 1px solid #bfc6cf;
+    background: #ffffff;
+    font: inherit;
+}
+
+.campo-registro textarea {
+    min-height: 82px;
+    resize: vertical;
+}
+
+.registro-carga-imagen {
+    display: grid;
+    place-items: center;
+    min-height: 104px;
+    border: 2px dashed #7bb5f8;
+    border-radius: 6px;
+    color: var(--color-texto);
+    background: #eef6ff;
+    cursor: pointer;
+}
+
+.registro-carga-imagen i {
+    color: #9bc5f7;
+    font-size: 2.5rem;
+}
+
+.registro-carga-imagen span {
+    margin-top: 4px;
+}
+
+.registro-carga-imagen small {
+    color: var(--color-texto-suave);
+}
+
+.registro-formulario__acciones {
+    grid-column: 1 / -1;
+    margin-top: auto;
+}
+
+/* Panel de posibles coincidencias */
+.coincidencias {
+    min-height: 590px;
+}
+
+.coincidencias__alerta {
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    gap: 10px;
+    align-items: center;
+    margin: 14px 16px;
+    padding: 10px 12px;
+    border: 1px solid #8fbaf7;
+    border-radius: 6px;
+    color: #365779;
+    background: #eef6ff;
+}
+
+.coincidencias__alerta i {
+    color: #6aa7e8;
+    font-size: 1.8rem;
+}
+
+.coincidencias__alerta p {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.coincidencias__alerta span {
+    display: block;
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+}
+
+.coincidencias__lista {
+    display: grid;
+    gap: 14px;
+    max-height: 430px;
+    margin: 0 16px 16px;
+    padding: 18px 14px;
+    overflow: auto;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+}
+
+.coincidencia {
+    display: grid;
+    grid-template-columns: 28px 56px 1fr;
+    gap: 12px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.coincidencia input {
+    width: 26px;
+    height: 26px;
+    accent-color: #2878dc;
+}
+
+.coincidencia__imagen {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    font-size: 1.6rem;
+}
+
+.coincidencia strong,
+.coincidencia small {
+    display: block;
+}
+
+.coincidencia small {
+    margin-top: 6px;
+    color: var(--color-texto-suave);
+    font-weight: 700;
+}
+
+/* Grilla del segundo paso para preparar la compra */
+.registro-preparar__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 430px;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.registro-preparar__columna {
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+}
+
+/* Controles superiores del segundo paso */
+.preparar-controles {
+    display: grid;
+    grid-template-columns: 1fr 1fr 200px;
+    gap: 20px;
+    padding: 14px;
+}
+
+.preparar-controles label {
+    display: grid;
+    gap: 8px;
+    font-weight: 700;
+}
+
+.preparar-controles select,
+.preparar-controles .preparar-selector-solo-lectura,
+.preparar-controles input {
+    width: 100%;
+    min-height: 44px;
+    padding: 10px 12px;
+    border: 1px solid #bfc6cf;
+    border-radius: 5px;
+    background: #ffffff;
+    font: inherit;
+}
+
+.preparar-selector-solo-lectura {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-texto);
+    text-align: left;
+    cursor: pointer;
+}
+
+.preparar-controles .preparar-selector-solo-lectura--seleccionado {
+    background: #b7d8a8;
+}
+
+/* Lista de productos del segundo paso */
+.preparar-lista {
+    margin-top: 16px;
+}
+
+.preparar-lista__titulo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px;
+    background: #eeeeee;
+}
+
+.preparar-lista__titulo h2,
+.preparar-lista__titulo p {
+    margin: 0;
+}
+
+.preparar-lista__titulo h2 {
+    font-size: 1rem;
+}
+
+.preparar-lista__titulo p {
+    margin-top: 4px;
+    color: var(--color-texto-suave);
+    font-weight: 700;
+}
+
+.preparar-lista__vista {
+    display: inline-flex;
+    overflow: hidden;
+    border: 1px solid var(--color-primario);
+    border-radius: 6px;
+}
+
+.preparar-lista__vista button {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 38px;
+    border: 0;
+    color: #9aa3ad;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 1.35rem;
+}
+
+.preparar-lista__vista .preparar-lista__vista-activa {
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+.preparar-tabla input {
+    width: 96px;
+    min-height: 36px;
+    padding: 8px;
+    border: 1px solid #bfc6cf;
+    text-align: center;
+}
+
+.preparar-imagen {
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 46px;
+    margin: 0 auto;
+    border-radius: 6px;
+    font-size: 1.45rem;
+}
+
+/* Mensaje informativo del segundo paso */
+.registro-alerta-info {
+    display: grid;
+    grid-template-columns: 34px 1fr;
+    gap: 10px;
+    align-items: center;
+    margin-top: 18px;
+    padding: 10px 12px;
+    border: 1px solid #8fbaf7;
+    border-radius: 6px;
+    color: #365779;
+    background: #eef6ff;
+}
+
+.registro-alerta-info i {
+    color: #6aa7e8;
+    font-size: 1.7rem;
+}
+
+.registro-alerta-info p {
+    margin: 0;
+    font-size: 0.88rem;
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.registro-alerta-info span {
+    display: block;
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+}
+
+/* Acciones inferiores del segundo paso */
+.registro-preparar__acciones {
+    display: grid;
+    grid-template-columns: 260px 1fr auto;
+    align-items: center;
+    gap: 18px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.registro-preparar__acciones .registro-boton--gris {
+    justify-content: flex-start;
+    min-width: 260px;
+    padding-right: 22px;
+    padding-left: 22px;
+    white-space: nowrap;
+}
+
+.registro-preparar__total {
+    justify-self: end;
+    text-align: right;
+}
+
+.registro-preparar__total span,
+.registro-preparar__total strong {
+    display: block;
+}
+
+.registro-preparar__total strong {
+    color: var(--color-primario);
+}
+
+/* Panel lateral de proveedores sugeridos */
+.proveedores-sugeridos {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Alterna el panel lateral según el selector utilizado en el paso dos */
+.panel-sugerencias[hidden] {
+    display: none;
+}
+
+.proveedores-sugeridos__titulo {
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 8px;
+    align-items: center;
+}
+
+.proveedores-sugeridos__titulo i {
+    font-size: 1.55rem;
+}
+
+.proveedores-sugeridos__titulo p {
+    margin: 2px 0 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.proveedores-sugeridos__nuevo,
+.proveedores-sugeridos__detalle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    margin: 14px 16px;
+    border: 1px solid #8fbaf7;
+    border-radius: 6px;
+    color: #1d64c8;
+    background: #eef6ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.proveedores-sugeridos__nuevo {
+    cursor: pointer;
+}
+
+.proveedores-sugeridos__lista {
+    display: grid;
+    gap: 12px;
+    max-height: 510px;
+    margin: 0 10px;
+    padding: 10px;
+    overflow: auto;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+}
+
+.proveedor-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 12px;
+    align-items: center;
+    padding: 12px;
+    border: 1px solid var(--color-borde);
+    border-radius: 6px;
+    background: #ffffff;
+}
+
+.proveedor-card__selector {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #cfcfcf;
+}
+
+.proveedor-card__selector--activo {
+    border: 7px solid #2878dc;
+    background: #ffffff;
+}
+
+.proveedor-card--seleccionable {
+    cursor: pointer;
+}
+
+.proveedor-card--seleccionable:focus-visible {
+    outline: 2px solid #2878dc;
+    outline-offset: 2px;
+}
+
+.proveedor-card--activo {
+    border-color: #75a9e9;
+    box-shadow: 0 0 0 1px #75a9e9;
+}
+
+.proveedor-card--activo .proveedor-card__selector {
+    border: 7px solid #2878dc;
+    background: #ffffff;
+}
+
+/* Modal especifico para el registro visual de un nuevo proveedor */
+body.registro-modal-abierto {
+    overflow: hidden;
+}
+
+.registro-modal[hidden] {
+    display: none;
+}
+
+.registro-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    background: rgba(3, 25, 44, 0.58);
+}
+
+.registro-modal__dialogo {
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    width: min(560px, 100%);
+    max-height: calc(100vh - 48px);
+    overflow: hidden;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(3, 25, 44, 0.3);
+}
+
+.registro-modal__encabezado {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 22px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.registro-modal__encabezado h2,
+.registro-modal__encabezado p {
+    margin: 0;
+}
+
+.registro-modal__encabezado h2 {
+    font-size: 1.25rem;
+}
+
+.registro-modal__encabezado p {
+    margin-top: 5px;
+    color: var(--color-texto-suave);
+    font-size: 0.84rem;
+}
+
+.registro-modal__encabezado > button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 0;
+    border-radius: 50%;
+    color: #4b5563;
+    background: #eef1f4;
+    cursor: pointer;
+}
+
+.registro-modal__formulario {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.registro-modal__campos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+    min-height: 0;
+    padding: 22px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.registro-modal__formulario label {
+    display: grid;
+    gap: 7px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.registro-modal__formulario label > span strong {
+    color: #dc2626;
+}
+
+.registro-modal__formulario input,
+.registro-modal__formulario select,
+.registro-modal__formulario textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 10px 12px;
+    border: 1px solid #bfc6cf;
+    border-radius: 5px;
+    color: var(--color-texto);
+    background: #ffffff;
+    font: inherit;
+}
+
+.registro-modal__formulario textarea {
+    min-height: 82px;
+    resize: vertical;
+}
+
+.registro-modal__campo-completo,
+.registro-modal__acciones {
+    grid-column: auto;
+}
+
+.registro-modal__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 16px 22px;
+    border-top: 1px solid var(--color-borde);
+    background: #ffffff;
+}
+
+.registro-modal__acciones .registro-boton {
+    min-width: 160px;
+}
+
+.proveedor-card__avatar {
+    flex: 0 0 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #9ac5c9;
+}
+
+.proveedor-card__avatar--morado {
+    background: #b4a2d8;
+}
+
+.proveedor-card__avatar--amarillo {
+    background: #ffe195;
+}
+
+.proveedor-card h3,
+.proveedor-card p {
+    margin: 0;
+}
+
+.proveedor-card__encabezado {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-right: 112px;
+}
+
+.proveedor-card__contenido > p,
+.proveedor-card__contenido > strong {
+    margin-left: 64px;
+}
+
+.proveedor-card h3 {
+    padding-right: 0;
+}
+
+.proveedor-card p {
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+}
+
+.proveedor-card strong {
+    display: block;
+    margin-top: 6px;
+    font-size: 1rem;
+}
+
+.proveedor-card > small {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    padding: 3px 8px;
+    border: 1px solid #8ecf7d;
+    border-radius: 5px;
+    color: #16883a;
+    background: #dff6d9;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.proveedor-card__etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.proveedor-card__etiquetas span {
+    padding: 3px 8px;
+    border: 1px solid #8fbaf7;
+    border-radius: 5px;
+    color: #1d64c8;
+    background: #eef6ff;
+    font-size: 0.68rem;
+    font-weight: 700;
+}
+
+.proveedor-card__etiquetas span:first-child {
+    border-color: #8ecf7d;
+    color: #16883a;
+    background: #dff6d9;
+}
+
+.proveedores-sugeridos__detalle {
+    margin-top: auto;
+    color: var(--color-texto);
+    background: #ffffff;
+    border-color: var(--color-borde);
+    box-shadow: 0 2px 0 rgba(31, 41, 51, 0.14);
+}
+
+/* Tarjetas seleccionables de métodos de despacho sugeridos */
+.metodo-despacho-card {
+    width: 100%;
+    color: var(--color-texto);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.metodo-despacho-card .proveedor-card__contenido {
+    display: block;
+    min-width: 0;
+}
+
+.metodo-despacho-card__titulo {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.metodo-despacho-card__detalle {
+    display: block;
+    margin-left: 64px;
+    color: var(--color-texto-suave);
+    font-size: 0.8rem;
+}
+
+.metodo-despacho-card__avatar--azul {
+    background: #91baf0;
+}
+
+.metodo-despacho-card__avatar--naranjo {
+    background: #f7b266;
+}
+
+.metodo-despacho-card__avatar--amarillo {
+    background: #ffe195;
+}
+
+.metodo-despacho-card--activo {
+    border-color: #75a9e9;
+    box-shadow: 0 0 0 1px #75a9e9;
+}
+
+.metodo-despacho-card--activo .proveedor-card__selector {
+    border: 7px solid #2878dc;
+    background: #ffffff;
+}
+
+/* Grilla del tercer paso para confirmar la compra. */
+.registro-confirmar__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 430px;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.registro-confirmar__columna {
+    display: flex;
+    flex-direction: column;
+    min-height: 650px;
+}
+
+/* Datos generales del tercer paso. */
+.confirmar-datos {
+    padding: 16px;
+}
+
+.confirmar-datos h2,
+.confirmar-productos h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.confirmar-formulario {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px 20px;
+    margin-top: 12px;
+}
+
+.confirmar-campo {
+    display: grid;
+    gap: 6px;
+    font-weight: 700;
+}
+
+.confirmar-campo strong {
+    color: #e02424;
+}
+
+.confirmar-campo input,
+.confirmar-campo select,
+.confirmar-campo textarea {
+    width: 100%;
+    min-height: 42px;
+    padding: 9px 12px;
+    border: 1px solid #bfc6cf;
+    border-radius: 5px;
+    background: #ffffff;
+    color: var(--color-texto);
+    font: inherit;
+    text-align: center;
+}
+
+.confirmar-campo textarea {
+    min-height: 88px;
+    resize: vertical;
+    text-align: left;
+}
+
+.confirmar-campo--observaciones {
+    grid-row: span 2;
+}
+
+.confirmar-fecha {
+    position: relative;
+    display: block;
+}
+
+.confirmar-fecha input {
+    padding-right: 42px;
+}
+
+.confirmar-fecha i {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    color: var(--color-texto-suave);
+    font-size: 1.25rem;
+    pointer-events: none;
+}
+
+/* Tabla de resumen del tercer paso */
+.confirmar-productos {
+    margin-top: 16px;
+}
+
+.confirmar-productos__titulo {
+    padding: 16px;
+    background: #eeeeee;
+}
+
+.confirmar-tabla td,
+.confirmar-tabla th {
+    text-align: center;
+}
+
+.confirmar-tabla td:nth-child(3),
+.confirmar-tabla th:nth-child(3) {
+    text-align: left;
+}
+
+.confirmar-tabla .preparar-imagen {
+    width: 50px;
+    height: 38px;
+}
+
+.confirmar-alerta {
+    margin-top: 18px;
+}
+
+/* Acciones inferiores del tercer paso */
+.registro-confirmar__acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: auto;
+    padding-top: 18px;
+}
+
+.registro-confirmar__acciones .registro-boton--gris {
+    justify-content: flex-start;
+    min-width: 260px;
+    padding-right: 22px;
+    padding-left: 22px;
+    white-space: nowrap;
+}
+
+/* Panel lateral con resumen final de compra */
+.compra-resumen {
+    display: flex;
+    flex-direction: column;
+}
+
+.compra-resumen__titulo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.compra-resumen__titulo i {
+    font-size: 1.55rem;
+}
+
+.compra-resumen__item {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 20px 22px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.compra-resumen__item strong,
+.compra-resumen__item p {
+    margin: 0;
+}
+
+.compra-resumen__item strong {
+    font-size: 1rem;
+}
+
+.compra-resumen__item p {
+    margin-top: 5px;
+    color: var(--color-texto-suave);
+    font-size: 0.84rem;
+}
+
+.compra-resumen__icono {
+    display: grid;
+    place-items: center;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    font-size: 1.7rem;
+}
+
+.compra-resumen__icono--celeste {
+    color: #5f84b8;
+    background: #a8cbd2;
+}
+
+.compra-resumen__icono--amarillo {
+    color: #c48f00;
+    background: #ffe39b;
+}
+
+.compra-resumen__icono--azul {
+    color: #2878dc;
+    background: #cfe0ff;
+}
+
+.compra-resumen__costos {
+    display: grid;
+    gap: 20px;
+    padding: 24px 24px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.compra-resumen__costos p,
+.compra-resumen__total,
+.compra-resumen__entrega {
+    margin: 0;
+}
+
+.compra-resumen__costos p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--color-texto-suave);
+}
+
+.compra-resumen__costos strong {
+    color: var(--color-texto);
+}
+
+.compra-resumen__total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 28px 24px;
+    border-bottom: 1px solid var(--color-borde);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.compra-resumen__total strong {
+    color: var(--color-primario);
+    font-size: 1.45rem;
+}
+
+.compra-resumen__entrega {
+    display: grid;
+    grid-template-columns: 58px 1fr auto;
+    gap: 14px;
+    align-items: center;
+    margin-top: auto;
+    padding: 24px;
+    color: #9ca3af;
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.compra-resumen__entrega i {
+    font-size: 2.6rem;
+}
+
+.compra-resumen__entrega strong {
+    color: #8c96a4;
+}
+
+/* Ajustes responsivos para el flujo de registro */
+@media (max-width: 1280px) {
+    .registro-compra__grid,
+    .registro-producto__grid,
+    .registro-preparar__grid,
+    .registro-confirmar__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-resumen,
+    .coincidencias,
+    .registro-preparar__columna,
+    .registro-confirmar__columna {
+        min-height: auto;
+    }
+
+    .preparar-controles,
+    .confirmar-formulario {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 760px) {
+    .registro-pasos {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-pasos__item:not(:last-child)::after {
+        display: none;
+    }
+
+    .registro-formulario form {
+        grid-template-columns: 1fr;
+    }
+
+    .registro-lista__acciones,
+    .registro-formulario__acciones,
+    .registro-preparar__acciones,
+    .registro-confirmar__acciones {
+        grid-template-columns: 1fr;
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .registro-preparar__total {
+        justify-self: stretch;
+        text-align: left;
+    }
+
+    .registro-boton {
+        width: 100%;
+    }
+
+    .registro-modal {
+        padding: 12px;
+    }
+
+    .registro-modal__dialogo {
+        max-height: calc(100vh - 24px);
+    }
+
+    .registro-modal__campos {
+        padding: 18px;
+    }
+
+    .registro-modal__acciones {
+        flex-direction: column-reverse;
+        padding: 14px 18px;
+    }
+
+    .compra-resumen__entrega {
+        grid-template-columns: 48px 1fr;
+    }
+
+    .compra-resumen__entrega strong {
+        grid-column: 2;
+    }
+}

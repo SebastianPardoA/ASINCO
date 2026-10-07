@@ -1,0 +1,398 @@
+/**
+ * administración.css
+ *
+ * Define los estilos especificos de la maqueta de administración
+ */
+
+/* Contenedor general del módulo de administración */
+.administracion-contenido {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+}
+
+/* Navegación visual de las pestañas del módulo */
+.administracion-pestanas { display: flex; width: fit-content; margin-bottom: 0; }
+.administracion-pestana {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 152px;
+    min-height: 43px;
+    border: 1px solid #c7cbd0;
+    border-bottom-color: #b8bec4;
+    color: #171b1f;
+    background: #e9e9e9;
+    cursor: pointer;
+}
+.administracion-pestana + .administracion-pestana { margin-left: -1px; }
+.administracion-pestana i { font-size: 1.35rem; }
+.administracion-pestana--activa { position: relative; z-index: 1; border-color: #2d79e6; color: #2d79e6; background: #ffffff; }
+
+/* Panel que contiene el listado y sus controles*/
+.administracion-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    padding: 16px 14px 10px;
+    border: 1px solid #c7cbd0;
+    border-radius: 0 6px 6px 6px;
+    background: #ffffff;
+}
+
+/* Oculta los paneles de las pestañas que no están seleccionadas */
+.administracion-panel--oculto {
+    display: none;
+}
+
+/* Estructura del formulario visual de creación de usuarios */
+.administracion-panel--formulario {
+    flex: 1 1 0;
+    height: calc(100vh - 315px);
+    min-height: 0;
+    max-height: calc(100vh - 315px);
+    overflow: hidden;
+}
+
+/* Mensaje de ayuda del formulario */
+.administracion-formulario__ayuda {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 14px;
+    border: 1px solid #8fc6f5;
+    border-radius: 6px;
+    color: #24557e;
+    background: #eaf5ff;
+}
+
+.administracion-formulario__ayuda > i {
+    flex: 0 0 auto;
+    margin-top: 1px;
+    color: #4b9ee8;
+    font-size: 1.15rem;
+}
+
+.administracion-formulario__ayuda span {
+    display: grid;
+    gap: 2px;
+}
+
+.administracion-formulario__ayuda strong {
+    font-size: 0.92rem;
+}
+
+.administracion-formulario__ayuda small {
+    color: #5d7890;
+    font-size: 0.82rem;
+}
+
+.administracion-formulario {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+    margin-top: 22px;
+}
+
+.administracion-formulario__campos {
+    flex: 1;
+    min-height: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 8px;
+}
+
+.administracion-formulario__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    width: 90%;
+}
+
+.administracion-campo {
+    display: grid;
+    gap: 7px;
+}
+
+.administracion-campo span {
+    color: var(--color-texto);
+    font-size: 0.92rem;
+}
+
+.administracion-campo b {
+    color: #df3131;
+}
+
+.administracion-campo input,
+.administracion-campo select {
+    width: 100%;
+    min-height: 42px;
+    padding: 0 12px;
+    border: 1px solid #bcc6cf;
+    border-radius: 5px;
+    color: var(--color-texto);
+    background: #f1f3f5;
+    outline: 0;
+}
+
+.administracion-campo input:focus,
+.administracion-campo select:focus {
+    border-color: #4e91e8;
+    box-shadow: 0 0 0 2px rgba(78, 145, 232, 0.14);
+}
+
+/* Contenedor de contraseña con botón para alternar su visibilidad */
+.administracion-campo__password {
+    position: relative;
+    display: block;
+}
+
+.administracion-campo__password input {
+    padding-right: 46px;
+}
+
+.administracion-mostrar-contrasena {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 4px;
+    color: #647b8d;
+    background: transparent;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.administracion-mostrar-contrasena:hover {
+    color: var(--color-primario);
+    background: #dfeaf2;
+}
+
+.administracion-formulario__acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 0 0;
+}
+
+.administracion-formulario__acciones[hidden] {
+    display: none;
+}
+
+.administracion-boton--secundario {
+    border: 1px solid #b8bec4;
+    color: var(--color-texto);
+    background: #e5e5e5;
+}
+
+.administracion-boton--eliminar {
+    border: 1px solid #d32929;
+    color: #ffffff;
+    background: #e53935;
+}
+
+/* Modal de confirmación para la creación del usuario */
+.administracion-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 30;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: rgba(7, 31, 51, 0.42);
+}
+
+.administracion-modal[hidden] {
+    display: none;
+}
+
+.administracion-modal__contenido {
+    width: min(100%, 430px);
+    padding: 24px;
+    border: 1px solid #cbd5dc;
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 18px 45px rgba(31, 41, 51, 0.25);
+}
+
+/* Modal de edición con campos desplazables y acciones siempre visibles */
+.administracion-modal__contenido--edicion {
+    display: flex;
+    flex-direction: column;
+    width: min(100%, 760px);
+    max-height: min(90vh, 780px);
+    overflow: hidden;
+}
+
+.administracion-formulario-edicion {
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    margin-top: 18px;
+}
+
+.administracion-formulario-edicion__campos {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    min-height: 0;
+    overflow-y: auto;
+    padding: 2px 8px 4px 1px;
+}
+
+.administracion-formulario-edicion__campo--completo {
+    grid-column: auto;
+}
+
+.administracion-formulario-edicion input[readonly] {
+    color: #66727b;
+    background: #e4e8eb;
+    cursor: not-allowed;
+}
+
+.administracion-formulario-edicion .administracion-modal__acciones {
+    flex: 0 0 auto;
+    margin-top: 16px;
+    padding-top: 14px;
+    border-top: 1px solid #d7dde2;
+}
+
+/* Acción de cambio de contraseña pendiente dentro del formulario de edición */
+.administracion-cambio-contrasena {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    grid-column: auto;
+    gap: 8px;
+    padding-top: 4px;
+}
+
+.administracion-cambio-contrasena__mensaje {
+    order: 1;
+    color: #24557e;
+    font-size: 0.82rem;
+    text-align: center;
+}
+
+.administracion-cambio-contrasena > button {
+    order: 2;
+}
+
+/* Modal para ingresar y validar la nueva contraseña */
+.administracion-modal__contenido--contrasena {
+    width: min(100%, 450px);
+}
+
+.administracion-formulario-contrasena {
+    display: grid;
+    gap: 18px;
+    margin-top: 18px;
+}
+
+.administracion-modal__encabezado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.administracion-modal__encabezado i {
+    color: var(--color-primario);
+    font-size: 1.35rem;
+}
+
+.administracion-modal__encabezado h3 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.administracion-modal__contenido > p {
+    margin: 16px 0 22px;
+    color: var(--color-texto-suave);
+}
+
+.administracion-modal__acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.administracion-panel__encabezado { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-bottom: 10px; }
+.administracion-panel__encabezado h3 { margin: 0; padding-left: 5px; font-size: 1.05rem; font-weight: 400; }
+
+/* Filtros de búsqueda y acción principal de usuarios */
+.administracion-filtros { display: flex; align-items: center; gap: 14px; }
+.administracion-busqueda { display: flex; align-items: center; width: 262px; min-height: 34px; border: 1px solid #9ea7b1; border-radius: 16px; color: #74808a; background: #ffffff; }
+.administracion-busqueda i { margin-left: 9px; font-size: 0.85rem; }
+.administracion-busqueda input { width: 100%; min-width: 0; padding: 0 10px 0 6px; border: 0; outline: 0; color: var(--color-texto); background: transparent; }
+.administracion-busqueda input::placeholder { color: #89939c; }
+.administracion-select select { min-height: 34px; padding: 0 26px 0 9px; border: 1px solid #c0c7cd; border-radius: 6px; color: var(--color-texto); background: #ffffff; }
+.administracion-boton { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 34px; padding: 0 14px; border-radius: 6px; cursor: pointer; }
+.administracion-boton--principal { margin-left: auto; border: 1px solid #005d68; color: #ffffff; background: var(--color-primario); box-shadow: 0 1px 2px rgba(0, 0, 0, 0.18); }
+
+/* Tabla de usuarios */
+.administracion-tabla-contenedor { flex: 0 0 auto; overflow: auto; border: 1px solid #c6cbd0; border-radius: 6px; }
+.administracion-tabla { width: 100%; min-width: 900px; border-collapse: collapse; font-size: 0.93rem; }
+.administracion-tabla--roles { min-width: 720px; }
+.administracion-tabla th { padding: 8px 10px; border-bottom: 1px solid #c6cbd0; color: #14191e; background: #ededed; font-weight: 400; text-align: left; }
+.administracion-tabla td { height: 65px; padding: 8px 10px; border-bottom: 1px solid #d2d6da; white-space: nowrap; }
+.administracion-tabla__numero { width: 44px; text-align: center !important; }
+.administracion-tabla td.administracion-tabla__mensaje { padding-left: 12px; text-align: left !important; }
+.administracion-tabla th:last-child,
+.administracion-tabla td:last-child { padding-right: 24px; text-align: right; }
+.administracion-tabla tbody tr:last-child td { border-bottom: 0; }
+.administracion-usuario { display: flex; align-items: center; gap: 24px; }
+.administracion-usuario strong { font-weight: 400; }
+
+/* Avatar circular para distinguir visualmente a cada usuario */
+.administracion-avatar { display: grid; place-items: center; width: 45px; height: 45px; border-radius: 50%; color: #ffffff; font-size: 1.15rem; font-weight: 700; }
+.administracion-avatar--celeste { background: #8dbdc8; }
+.administracion-avatar--morado { background: #6950aa; }
+.administracion-avatar--verde { background: #66a84e; }
+.administracion-avatar--naranja { background: #f2af67; }
+
+/* Etiquetas de estado de usuario */
+.administracion-estado { display: inline-block; min-width: 80px; padding: 4px 10px; border: 1px solid; border-radius: 5px; text-align: center; }
+.administracion-estado--activo { border-color: #9bd29a; color: #23752c; background: #c9e8c5; }
+.administracion-estado--inactivo { border-color: #ef7575; color: #d82d2d; background: #ffd0d0; }
+
+/* Acciones visuales disponibles para cada usuario */
+.administracion-acciones { display: flex; align-items: center; justify-content: flex-end; gap: 23px; }
+.administracion-acciones button { padding: 0; border: 0; color: #687078; background: transparent; font-size: 1.25rem; cursor: pointer; }
+.administracion-acciones button:first-child { color: var(--color-primario); }
+.administracion-acciones .administracion-accion--eliminar { color: #ed2f2f; }
+.administracion-acciones button:disabled { cursor: not-allowed; opacity: 0.68; }
+
+/* Paginación del listado de usuarios */
+.administracion-paginacion { display: flex; align-items: center; justify-content: space-between; min-height: 38px; margin-top: auto; padding: 4px 4px 0; color: #7b858d; font-size: 0.78rem; }
+.administracion-paginacion p { margin: 0; }
+.administracion-paginas { display: flex; gap: 8px; }
+.administracion-paginas button { display: grid; place-items: center; width: 31px; height: 31px; border: 1px solid #d2d7db; color: #8b959c; background: #ffffff; cursor: pointer; }
+.administracion-paginas .administracion-pagina--activa { border-color: var(--color-primario); color: #ffffff; background: var(--color-primario); }
+.administracion-paginas button:disabled { cursor: not-allowed; opacity: 0.55; }
+
+/* Texto solo para lectores de pantalla */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+/* Ajustes para pantallas medianas y pequeñas. */
+@media (max-width: 950px) {
+    .administracion-panel__encabezado { align-items: flex-start; flex-direction: column; }
+    .administracion-filtros { width: 100%; flex-wrap: wrap; }
+    .administracion-boton--principal { margin-left: 0; }
+
+}
+
+@media (max-width: 620px) {
+    .administracion-pestana { width: 33.333vw; min-width: 100px; }
+    .administracion-busqueda { width: 100%; }
+    .administracion-formulario__grid { width: 100%; }
+}
