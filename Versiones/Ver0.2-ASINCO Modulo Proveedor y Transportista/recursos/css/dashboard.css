@@ -1,0 +1,499 @@
+/**
+ * dashboard.css
+ *
+ * Define los estilos especificos de la vista dashboard
+ */
+
+/* Layout principal del dashboard junto al menú lateral */
+.dashboard-pagina {
+    min-height: 100vh;
+    background: var(--color-fondo);
+}
+
+/* Contenedor principal de la vista dashboard */
+.dashboard-contenido {
+    display: flex;
+    flex-direction: column;
+    margin-left: 260px;
+    min-height: 100vh;
+    padding: 26px 30px 34px;
+    transition: margin-left 0.2s ease;
+}
+
+/* Acciones superiores propias del dashboard */
+.dashboard-acciones-superiores {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+}
+
+/* Botón visual para seleccionar fecha del resumen */
+.dashboard-fecha {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 210px;
+    min-height: 44px;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+    background: var(--color-primario);
+    font-size: 0.92rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Tarjetas superiores con indicadores clave */
+.dashboard-indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+    margin-bottom: 28px;
+}
+
+.indicador {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    align-items: center;
+    gap: 18px;
+    min-height: 116px;
+    padding: 18px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+}
+
+.indicador span,
+.indicador small {
+    display: block;
+}
+
+.indicador span {
+    font-weight: 700;
+}
+
+.indicador strong {
+    display: block;
+    margin: 8px 0;
+    font-size: 1.55rem;
+}
+
+.indicador small {
+    color: #1d64c8;
+    font-size: 0.75rem;
+}
+
+.texto-exito {
+    color: #16883a !important;
+}
+
+/* Íconos decorativos de indicadores */
+.indicador__icono {
+    display: grid;
+    place-items: center;
+    width: 82px;
+    height: 72px;
+    border-radius: 5px;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+
+.indicador__icono--azul {
+    color: #2f75db;
+    border: 1px solid #7cadf2;
+    background: #9fc2f5;
+}
+
+.indicador__icono--verde {
+    color: #64a948;
+    border: 1px solid #75b664;
+    background: #c7e6bd;
+}
+
+.indicador__icono--amarillo {
+    color: #f0b428;
+    border: 1px solid #f0bf39;
+    background: #fff1c8;
+}
+
+.indicador__icono--morado {
+    color: #7b2ce3;
+    border: 1px solid #8659d9;
+    background: #d2c2ef;
+}
+
+/* Grillas principales del dashboard */
+.dashboard-grid {
+    display: grid;
+    gap: 26px;
+    margin-bottom: 26px;
+}
+
+.dashboard-grid--principal {
+    grid-template-columns: minmax(0, 1fr) minmax(420px, 1fr);
+}
+
+.dashboard-grid--secundario {
+    grid-template-columns: 1.15fr repeat(4, minmax(0, 1fr));
+}
+
+/* Paneles reutilizados dentro del dashboard */
+.panel {
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+}
+
+.panel__titulo {
+    min-height: 38px;
+    padding: 9px 14px;
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+.panel__titulo--claro {
+    color: var(--color-texto);
+    background: var(--color-superficie);
+}
+
+.panel__titulo--acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.panel__titulo h2,
+.ranking h2,
+.alerta h2 {
+    margin: 0;
+    font-size: 1rem;
+    letter-spacing: 0;
+}
+
+.panel__titulo select {
+    min-width: 140px;
+    min-height: 28px;
+    border: 1px solid #9aa8b3;
+    border-radius: 5px;
+    background: #ffffff;
+    font-size: 0.75rem;
+}
+
+/* Tabla de compras recientes */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+.dashboard-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+}
+
+.dashboard-tabla th,
+.dashboard-tabla td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--color-borde);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.dashboard-tabla th {
+    background: #ececec;
+}
+
+.dashboard-tabla td:first-child {
+    color: #0080ad;
+    font-weight: 700;
+}
+
+/* Etiquetas de estado dentro de tablas */
+.estado {
+    display: inline-grid;
+    place-items: center;
+    min-height: 22px;
+    padding: 0 8px;
+    border-radius: 5px;
+    font-size: 0.75rem;
+}
+
+.estado--transito {
+    color: #1f6fda;
+    border: 1px solid #7ba8f0;
+    background: #cbe0ff;
+}
+
+.estado--pendiente {
+    color: #a56a00;
+    border: 1px solid #e1ae38;
+    background: #ffe9af;
+}
+
+.estado--recibido {
+    color: #327f2b;
+    border: 1px solid #72b565;
+    background: #d9f0d3;
+}
+
+/* Gráfico lineal temporal del gasto mensual */
+.grafico-linea {
+    padding: 24px 16px 12px;
+}
+
+.grafico-linea__area {
+    position: relative;
+    height: 150px;
+    margin: 0 0 10px;
+    border-bottom: 1px solid #aeb8c0;
+    background: linear-gradient(to bottom, transparent 0, transparent 32%, #d4d9dd 33%, transparent 34%, transparent 65%, #d4d9dd 66%, transparent 67%);
+}
+
+.grafico-linea__area::before {
+    content: "";
+    position: absolute;
+    left: 4%;
+    right: 2%;
+    bottom: 37%;
+    height: 78px;
+    border-top: 4px solid var(--color-primario);
+    transform: skewY(-5deg);
+}
+
+.grafico-linea__punto {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    color: #7b8791;
+    background: var(--color-primario);
+    font-size: 0.72rem;
+    text-indent: -18px;
+    transform: translate(-50%, 50%);
+    white-space: nowrap;
+}
+
+.grafico-linea__meses {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    color: #7b8791;
+    font-size: 0.78rem;
+    text-align: center;
+}
+
+/* grafico de compras por estado */
+.panel-dona {
+    padding-bottom: 12px;
+}
+
+.dona-resumen {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+}
+
+.dona {
+    width: 116px;
+    height: 116px;
+    border-radius: 50%;
+    background: conic-gradient(#50d16b 0 45%, #bfe2ff 45% 75%, #ffbd42 75% 90%, #00a8f0 90% 100%);
+}
+
+.dona::after {
+    content: "";
+    display: block;
+    width: 58px;
+    height: 58px;
+    margin: 29px;
+    border-radius: 50%;
+    background: #ffffff;
+}
+
+.dona-resumen ul {
+    display: grid;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.76rem;
+}
+
+.dona-resumen li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px;
+}
+
+.dona-resumen small {
+    display: block;
+    color: var(--color-texto-suave);
+}
+
+.leyenda {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+}
+
+.leyenda--verde {
+    background: #50d16b;
+}
+
+.leyenda--celeste {
+    background: #bfe2ff;
+}
+
+.leyenda--amarilla {
+    background: #ffbd42;
+}
+
+.leyenda--azul {
+    background: #00a8f0;
+}
+
+/* Rankings de proveedores y despachos */
+.ranking {
+    padding: 16px;
+}
+
+.ranking h2 {
+    margin-bottom: 14px;
+}
+
+.ranking ol {
+    display: grid;
+    gap: 14px;
+    margin: 0 0 16px;
+    padding-left: 20px;
+    font-size: 0.82rem;
+}
+
+.ranking li {
+    padding-left: 8px;
+}
+
+.ranking li::marker {
+    font-weight: 700;
+}
+
+.ranking li span {
+    display: inline-block;
+    max-width: 70%;
+}
+
+.ranking li strong {
+    float: right;
+    color: #111827;
+}
+
+.ranking a {
+    color: #0b67d1;
+    font-size: 0.75rem;
+    text-decoration: none;
+}
+
+/* Tarjetas de alerta inferiores */
+.dashboard-alertas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.alerta {
+    display: grid;
+    grid-template-columns: 44px 1fr;
+    gap: 12px;
+    min-height: 138px;
+    padding: 18px;
+    border: 1px solid;
+    border-radius: var(--radio-panel);
+}
+
+.alerta > span {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border: 4px solid currentColor;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    font-weight: 800;
+}
+
+.alerta p {
+    min-height: 42px;
+    margin: 14px 0 16px;
+    font-size: 0.82rem;
+}
+
+.alerta a {
+    font-size: 0.82rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.alerta--roja {
+    color: #d92323;
+    background: #f6caca;
+}
+
+.alerta--amarilla {
+    color: #e7a91b;
+    background: #fff0bf;
+}
+
+.alerta--azul {
+    color: #2878dc;
+    background: #c8dcf6;
+}
+
+.alerta--verde {
+    color: #62a94d;
+    background: #e7f3e4;
+}
+
+.alerta h2,
+.alerta p {
+    color: #111827;
+}
+
+/* Ajustes responsivos para mantener legible el dashboard */
+@media (max-width: 1280px) {
+    .dashboard-indicadores,
+    .dashboard-alertas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid--principal,
+    .dashboard-grid--secundario {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-contenido {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+}
+
+@media (max-width: 640px) {
+    .dashboard-indicadores,
+    .dashboard-alertas {
+        grid-template-columns: 1fr;
+    }
+
+    .indicador,
+    .dona-resumen {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-fecha {
+        width: 100%;
+    }
+}
