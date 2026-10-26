@@ -5,6 +5,8 @@ Proyecto de Título desarrollado para optar al título de Ingeniero en Informát
 
 **ASINCO (Asistente de Inventario y Compras)** es una plataforma web orientada a centralizar y gestionar la información relacionada con el inventario y los procesos de compra de una organización.
 
+<img width="2550" height="1268" alt="02-Inventario" src="https://github.com/user-attachments/assets/0a89d401-96bc-4783-abef-d2d210fb063e" />
+
 La plataforma permite administrar productos, unidades de inventario, compras, proveedores, transportistas y usuarios, manteniendo además antecedentes históricos como precios, evaluaciones, comentarios y documentos asociados a las adquisiciones.
 
 Su objetivo es mejorar la trazabilidad de los productos y permitir que la información obtenida de compras anteriores pueda ser reutilizada como apoyo para futuras adquisiciones, facilitando la comparación de proveedores y transportistas.
