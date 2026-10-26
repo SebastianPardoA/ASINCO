@@ -89,7 +89,7 @@ Esta metodología permite utilizar los productos generados en cada etapa como ba
 
 ASINCO está desarrollado como una aplicación web conectada a una base de datos MariaDB.
 
-<img width="1376" height="686" alt="image" src="https://github.com/user-attachments/assets/ffac1329-4d63-42bb-ae45-802d140fccaa" />
+<img width="1536" height="1024" alt="Arquitectura web para inventario y compras" src="https://github.com/user-attachments/assets/81c8ca1d-b3f1-4f5d-a970-74669ea2d036" />
 
 La plataforma está organizada mediante diferentes módulos funcionales, entre ellos:
 
