@@ -71,6 +71,8 @@ Ambos integrantes participan además en las actividades de pruebas, validación,
 
 Para el desarrollo de ASINCO se utiliza una metodología tradicional en cascada, organizando el proyecto mediante etapas secuenciales.
 
+<img width="1774" height="887" alt="metodologia" src="https://github.com/user-attachments/assets/16f39b3b-891f-4718-9d6c-fc59ffd1a99f" />
+
 Las principales etapas consideradas son:
 
 1. Levantamiento y análisis de requerimientos.
@@ -85,9 +87,9 @@ Esta metodología permite utilizar los productos generados en cada etapa como ba
 
 ## Arquitectura de la solución
 
-ASINCO está desarrollado como una **aplicación web conectada a una base de datos MariaDB**.
+ASINCO está desarrollado como una aplicación web conectada a una base de datos MariaDB.
 
-
+<img width="1376" height="686" alt="image" src="https://github.com/user-attachments/assets/ffac1329-4d63-42bb-ae45-802d140fccaa" />
 
 La plataforma está organizada mediante diferentes módulos funcionales, entre ellos:
 
