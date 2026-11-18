@@ -1,0 +1,601 @@
+/**
+ * dashboard.css
+ *
+ * Define el diseño adaptable de los indicadores, tablas y gráficos del dashboard
+ */
+
+/* Distribución general del dashboard junto al menú lateral */
+.dashboard-pagina {
+    min-height: 100vh;
+    background: var(--color-fondo);
+}
+
+.dashboard-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    min-height: 100vh;
+    margin-left: 260px;
+    padding: 0 28px 28px;
+    transition: margin-left 0.2s ease;
+}
+
+.dashboard-contenido > .barra-superior {
+    margin: 0 -28px;
+}
+
+.dashboard-mensaje {
+    margin: 0;
+    padding: 12px 16px;
+    color: #842029;
+    border: 1px solid #f1aeb5;
+    border-radius: var(--radio-panel);
+    background: #f8d7da;
+}
+
+.dashboard-mensaje[hidden],
+.dashboard-nota[hidden] {
+    display: none;
+}
+
+.solo-lectores {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Indicadores principales del sistema */
+.dashboard-indicadores {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.indicador {
+    display: grid;
+    grid-template-columns: 66px minmax(0, 1fr);
+    align-items: center;
+    gap: 15px;
+    min-height: 96px;
+    padding: 15px;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+}
+
+.indicador span,
+.indicador small {
+    display: block;
+}
+
+.indicador span {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.indicador strong {
+    display: block;
+    margin: 5px 0 3px;
+    font-size: 1.35rem;
+}
+
+.indicador small {
+    color: #16883a;
+    font-size: 0.72rem;
+}
+
+.indicador__icono {
+    display: grid;
+    place-items: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 5px;
+    font-size: 1.8rem;
+}
+
+.indicador__icono--azul { color: #2f75db; border: 1px solid #7cadf2; background: #d8e8ff; }
+.indicador__icono--verde { color: #64a948; border: 1px solid #75b664; background: #dcefd5; }
+.indicador__icono--amarillo { color: #e7a91b; border: 1px solid #f0bf39; background: #fff1c8; }
+.indicador__icono--morado { color: #7b2ce3; border: 1px solid #a78bfa; background: #e7ddfb; }
+
+/* Grillas para la tabla, la serie de gasto y los paneles de resumen */
+.dashboard-grid {
+    display: grid;
+    gap: 20px;
+}
+
+.dashboard-grid--principal {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.dashboard-grid--secundario {
+    grid-template-columns: minmax(245px, 1.15fr) repeat(4, minmax(0, 1fr));
+}
+
+.panel {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--color-borde);
+    border-radius: var(--radio-panel);
+    background: var(--color-superficie);
+}
+
+.panel__titulo {
+    min-height: 40px;
+    padding: 10px 14px;
+    color: #ffffff;
+    background: var(--color-primario);
+}
+
+.panel__titulo--claro {
+    color: var(--color-texto);
+    background: var(--color-superficie);
+}
+
+.panel__titulo--acciones {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.panel__titulo h2,
+.ranking h2 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.dashboard-selector select {
+    min-height: 29px;
+    max-width: 170px;
+    padding: 3px 8px;
+    border: 1px solid #c4ced7;
+    border-radius: 5px;
+    color: var(--color-texto);
+    background: #ffffff;
+    font-size: 0.75rem;
+}
+
+/* Tabla con enlaces al detalle de cada compra */
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+.dashboard-tabla table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.78rem;
+}
+
+.dashboard-tabla th,
+.dashboard-tabla td {
+    padding: 9px 10px;
+    border-bottom: 1px solid var(--color-borde);
+    text-align: left;
+    white-space: nowrap;
+}
+
+.dashboard-tabla th {
+    background: #eceff2;
+}
+
+.dashboard-tabla td:first-child a {
+    color: #0080ad;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.dashboard-tabla td:first-child a:hover {
+    text-decoration: underline;
+}
+
+.estado {
+    display: inline-grid;
+    place-items: center;
+    min-height: 22px;
+    padding: 0 8px;
+    border: 1px solid var(--estado-color, #94a3b8);
+    border-radius: 5px;
+    color: #263238;
+    background: color-mix(in srgb, var(--estado-color, #94a3b8) 18%, white);
+    font-size: 0.72rem;
+}
+
+.dashboard-vacio {
+    padding: 18px !important;
+    color: var(--color-texto-suave);
+    text-align: center !important;
+}
+
+/* Gráfico SVG de gastos mensuales */
+.grafico-linea {
+    min-height: 255px;
+    padding: 10px 12px 0;
+}
+
+.grafico-linea svg {
+    display: block;
+    width: 100%;
+    height: 245px;
+    overflow: visible;
+}
+
+.grafico-linea__guia {
+    stroke: #d8dee3;
+    stroke-width: 1;
+}
+
+.grafico-linea__serie {
+    fill: none;
+    stroke: var(--color-primario);
+    stroke-width: 3;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+}
+
+.grafico-linea__punto {
+    fill: var(--color-primario);
+    stroke: #ffffff;
+    stroke-width: 2;
+}
+
+.grafico-linea__mes {
+    fill: #718096;
+    font-size: 11px;
+}
+
+.grafico-linea__eje {
+    fill: #46515d;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.grafico-linea__valor {
+    fill: #27323d;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.dashboard-nota {
+    margin: 0 14px 12px;
+    color: #806000;
+    font-size: 0.72rem;
+}
+
+/* Gráfico circular y leyenda de estados de las compras */
+.panel-dona {
+    padding-bottom: 12px;
+}
+
+.dona-resumen {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 13px;
+}
+
+.dona-resumen--vacio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 168px;
+}
+
+.dona-resumen--vacio > .dona,
+.dona-resumen--vacio > ul {
+    display: none;
+}
+
+.dashboard-estados-vacio {
+    margin: 0;
+    color: var(--color-texto-suave);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.dashboard-estados-vacio[hidden] {
+    display: none;
+}
+
+.dona {
+    width: 116px;
+    height: 116px;
+}
+
+.dona svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.dona__total {
+    fill: var(--color-texto);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.dona__etiqueta {
+    fill: var(--color-texto-suave);
+    font-size: 9px;
+}
+
+.dona-resumen ul {
+    display: grid;
+    gap: 7px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 0.73rem;
+}
+
+.dona-resumen li:not(.dashboard-vacio) {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr);
+    align-items: start;
+    gap: 6px;
+}
+
+.dona-resumen small {
+    display: block;
+    color: var(--color-texto-suave);
+    font-size: 0.68rem;
+}
+
+.leyenda {
+    width: 12px;
+    height: 12px;
+    margin-top: 2px;
+    border-radius: 50%;
+    background: var(--estado-color, #008596);
+}
+
+/* Listados de proveedores y transportistas con mejores y peores evaluaciones */
+.ranking {
+    padding: 0 0 14px;
+}
+
+.ranking__titulo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 66px;
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-borde);
+}
+
+.ranking__titulo > span {
+    display: grid;
+    place-items: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
+
+.ranking--mejores .ranking__titulo > span {
+    color: #2f6e2b;
+    background: #cde7c5;
+}
+
+.ranking--peores .ranking__titulo > span {
+    color: #b81920;
+    background: #f4b8bc;
+}
+
+.ranking__titulo h2 {
+    margin: 0 0 3px;
+    font-size: 1rem;
+}
+
+.ranking__titulo small {
+    color: #4c5560;
+    font-size: 0.75rem;
+}
+
+.ranking ol {
+    display: grid;
+    gap: 9px;
+    min-height: 78px;
+    margin: 0 0 8px;
+    padding: 12px 14px 8px;
+    list-style: none;
+    font-size: 0.76rem;
+}
+
+.ranking li:not(.dashboard-vacio) {
+    display: grid;
+    grid-template-columns: 26px minmax(0, 1fr) auto auto;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.ranking li .dashboard-ranking-posicion {
+    color: #536170;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.ranking li .dashboard-ranking-nombre {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.ranking li strong {
+    color: #111827;
+    white-space: nowrap;
+}
+
+.dashboard-ranking-estrellas {
+    color: #f2b521;
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+.ranking a {
+    display: inline-block;
+    margin: 0 14px;
+    color: #0b67d1;
+    font-size: 0.72rem;
+    text-decoration: none;
+}
+
+.ranking a:hover {
+    text-decoration: underline;
+}
+
+/* Alertas operativas con colores equivalentes a los del diseño de referencia */
+.dashboard-alertas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.alerta {
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: start;
+    gap: 13px;
+    min-height: 138px;
+    padding: 16px;
+    border: 1px solid;
+    border-radius: var(--radio-panel);
+}
+
+.alerta__icono {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    font-size: 2rem;
+}
+
+.alerta h2 {
+    margin: 4px 0 8px;
+    font-size: 0.9rem;
+}
+
+.alerta p {
+    min-height: 36px;
+    margin: 0 0 8px;
+    font-size: 0.76rem;
+    line-height: 1.4;
+}
+
+.alerta a {
+    font-size: 0.74rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.alerta a:hover {
+    text-decoration: underline;
+}
+
+.alerta--roja { color: #b81920; border-color: #ef5350; background: #f7caca; }
+.alerta--roja p { color: #263238; }
+.alerta--roja a { color: #b81920; }
+.alerta--amarilla { color: #c48b00; border-color: #f2af16; background: #fff0bf; }
+.alerta--amarilla p { color: #263238; }
+.alerta--amarilla a { color: #c48b00; }
+.alerta--azul { color: #2878d7; border-color: #5d9af3; background: #c8ddf6; }
+.alerta--azul p { color: #263238; }
+.alerta--azul a { color: #2878d7; }
+.alerta--verde { color: #5b9d43; border-color: #78bb65; background: #e7f2e4; }
+.alerta--verde p { color: #263238; }
+.alerta--verde a { color: #478b31; }
+
+/* Ajustes para pantallas medianas y pequeñas */
+@media (max-width: 1500px) {
+    .dashboard-grid--secundario {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .panel-dona {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 1200px) {
+    .dashboard-indicadores {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-grid--principal {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid--secundario {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .dashboard-alertas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .dashboard-contenido {
+        margin-left: 0;
+        padding: 0 18px 24px;
+    }
+
+    .dashboard-contenido > .barra-superior {
+        margin: 0 -18px;
+    }
+}
+
+@media (max-width: 640px) {
+    .dashboard-contenido {
+        gap: 16px;
+        padding-right: 12px;
+        padding-left: 12px;
+    }
+
+    .dashboard-contenido > .barra-superior {
+        margin-right: -12px;
+        margin-left: -12px;
+    }
+
+    .dashboard-indicadores,
+    .dashboard-grid--secundario,
+    .dashboard-alertas {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-dona {
+        grid-column: auto;
+    }
+
+    .indicador {
+        grid-template-columns: 58px minmax(0, 1fr);
+    }
+
+    .indicador__icono {
+        width: 54px;
+        height: 54px;
+    }
+
+    .panel__titulo--acciones {
+        align-items: flex-start;
+    }
+
+    .dona-resumen {
+        grid-template-columns: 110px minmax(0, 1fr);
+    }
+
+    .dona {
+        width: 104px;
+        height: 104px;
+    }
+}
